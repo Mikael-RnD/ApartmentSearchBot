@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="775,1219" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="775,2326" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umabh="clr-namespace:UiPath.Mail.Activities.Business.HtmlEditor;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="36">
+    <scg:List x:TypeArguments="x:String" Capacity="42">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -37,10 +37,16 @@
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
       <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Activities.Business</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Mail.Activities.Utils</x:String>
+      <x:String>UiPath.Mail.Activities.Business.HtmlEditor</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="26">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="29">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -67,15 +73,18 @@
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="509,1154" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap:VirtualizedContainerService.HintSize="628,2261" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" AppliesTo="OnlyCurrentUser" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="467,51" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="chrome">
+    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" AppliesTo="OnlyCurrentUser" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="586,51" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="chrome">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -83,13 +92,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:KillProcess>
-    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="467,789" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://www.studentbostader.se/soker-bostad/lediga-bostader/">
+    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="586,1841" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://www.studentbostader.se/soker-bostad/lediga-bostader/">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,688" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="552,1740" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="ExtractedData" />
               <Variable x:TypeArguments="x:String" Name="text" />
@@ -102,7 +111,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Lista '" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Lista '" sap:VirtualizedContainerService.HintSize="510,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -124,7 +133,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text" sap:VirtualizedContainerService.HintSize="510,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
               <ui:GetValue.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0941260d-8936-4d5b-b71a-e59e7c55ae4c" InformativeScreenshot="c4b04fbdff3e217b95cac7e0db36aa29" Selector="&lt;ctrl name='Sök lediga studentbostäder lista | Studentbostäder i Linköping A*' role='document' /&gt;&lt;ctrl name=' av * sökträffar' role='text' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -139,17 +148,86 @@
                 <OutArgument x:TypeArguments="x:String">[visarText]</OutArgument>
               </ui:GetValue.Value>
             </ui:GetValue>
-            <ui:Matches BuilderPattern="(\d+)" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[visarText]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;DIG&quot;,&quot;OperationName&quot;:&quot;Digit&quot;,&quot;OperationValue&quot;:&quot;\\d&quot;,&quot;QuantifierFirstValue&quot;:&quot;+&quot;,&quot;QuantifierID&quot;:&quot;OOM&quot;,&quot;QuantifierName&quot;:&quot;At least one (1 or more)&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(\d+)" RegexOption="IgnoreCase, Compiled" Result="[visarTextMatches]" />
-            <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate To" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="NavigateTo_1" Url="[String.Format(&quot;https://www.studentbostader.se/soker-bostad/lediga-bostader-lista/?pagination=0&amp;paginationantal={0}&quot;,visarTextMatches(0))]" />
-            <ui:ExtractData DelayBetweenPagesMS="{x:Null}" MaxNumberOfResults="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="False" DataTable="[ExtractedData]" DisplayName="Extract Structured Data 'DIV'" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Område' attr='text'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;/column&gt;&lt;column exact='1' name='Adress' attr='text'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='3' /&gt;&lt;/column&gt;&lt;column exact='1' name='Storlek' attr='text'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;/column&gt;&lt;column css-selector='.col-span-6' name='Boyta' attr='text' /&gt;&lt;column exact='1' name='Möblerad' attr='text'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='6' /&gt;&lt;/column&gt;&lt;column exact='1' name='Hyra' attr='text'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='7' /&gt;&lt;/column&gt;&lt;column exact='1' name='Köpoäng' attr='text'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='8' /&gt;&lt;/column&gt;&lt;column exact='1' name='Tillträde' attr='text' name2='Länk' attr2='href'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='9' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_2" SimulateClick="True">
+            <ui:Matches BuilderPattern="(\d+)" sap:VirtualizedContainerService.HintSize="510,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[visarText]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;DIG&quot;,&quot;OperationName&quot;:&quot;Digit&quot;,&quot;OperationValue&quot;:&quot;\\d&quot;,&quot;QuantifierFirstValue&quot;:&quot;+&quot;,&quot;QuantifierID&quot;:&quot;OOM&quot;,&quot;QuantifierName&quot;:&quot;At least one (1 or more)&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(\d+)" RegexOption="IgnoreCase, Compiled" Result="[visarTextMatches]" />
+            <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate To" sap:VirtualizedContainerService.HintSize="510,59" sap2010:WorkflowViewState.IdRef="NavigateTo_1" Url="[String.Format(&quot;https://www.studentbostader.se/soker-bostad/lediga-bostader-lista/?pagination=0&amp;paginationantal={0}&quot;,visarTextMatches(0))]" />
+            <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractedData]" DisplayName="Extract Structured Data 'DIV'" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Område' attr='text'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;/column&gt;&lt;column exact='1' name='Adress' attr='text'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='3' /&gt;&lt;/column&gt;&lt;column exact='1' name='Storlek' attr='text'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;/column&gt;&lt;column exact='1' name='Boyta' attr='text'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='5' /&gt;&lt;/column&gt;&lt;column exact='1' name='Möblerad' attr='text'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='6' /&gt;&lt;/column&gt;&lt;column exact='1' name='Hyra' attr='text'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='7' /&gt;&lt;/column&gt;&lt;column exact='1' name='Poäng' attr='text'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='8' /&gt;&lt;/column&gt;&lt;column exact='1' name='Tillträde' attr='text' name2='Länk' attr2='href'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='9' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="510,106" sap2010:WorkflowViewState.IdRef="ExtractData_3" MaxNumberOfResults="0" SimulateClick="True">
               <ui:ExtractData.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="534a4661-0d2d-4dc7-b2b0-051c7f0b9057" InformativeScreenshot="fcee9a056c4db9b9fc8a5b6290981526" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='main-content' tag='DIV' /&gt;" WaitForReady="COMPLETE">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d644683a-511c-4a59-aa9f-d0bc8ed569f6" InformativeScreenshot="b4ee3821c5bcc66980ef90fec3561943" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='main-content' tag='DIV' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
                 </ui:Target>
               </ui:ExtractData.Target>
             </ui:ExtractData>
+            <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[ExtractedData]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="510,115" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Test" WorkbookPath="Test.xlsx" />
+            <umab:GmailApplicationCard ClientId="{x:Null}" ClientSecret="{x:Null}" Account="Please select an account" ConnectionAccountName="mikael.l.andersson91@gmail.com" ConnectionId="f1edb86e-b105-ed11-b47a-0050f29e0988" DisplayName="Use Gmail" sap:VirtualizedContainerService.HintSize="510,857" sap2010:WorkflowViewState.IdRef="GmailApplicationCard_1" Timeout="90" UseConnectionService="True">
+              <umab:GmailApplicationCard.Body>
+                <ActivityAction x:TypeArguments="um:IMailQuickHandle">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Gmail" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,676" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="snm:MailMessage" Name="receiver" />
+                      <Variable x:TypeArguments="x:String" Name="mailBody" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <umab:CreateHtmlContent DisplayName="Create HTML Content" sap:VirtualizedContainerService.HintSize="434,152" HtmlContent="[mailBody]" sap2010:WorkflowViewState.IdRef="CreateHtmlContent_1">
+                      <umab:CreateHtmlContent.HtmlContentArg>
+                        <umabh:HtmlContentArgument FilePath=".data/HtmlContent1.html">
+                          <umabh:HtmlContentArgument.RuntimeImages>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </umabh:HtmlContentArgument.RuntimeImages>
+                          <umabh:HtmlContentArgument.ValueMappings>
+                            <scg:List x:TypeArguments="umabh:HtmlValueMappingBase" Capacity="4">
+                              <umabh:HtmlTableValueMapping Name="ApartmentTable" Value="[ExtractedData]" />
+                            </scg:List>
+                          </umabh:HtmlContentArgument.ValueMappings>
+                        </umabh:HtmlContentArgument>
+                      </umab:CreateHtmlContent.HtmlContentArg>
+                    </umab:CreateHtmlContent>
+                    <umab:SendMailX Bcc="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Gmail]" Body="[mailBody]" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,392" sap2010:WorkflowViewState.IdRef="SendMailX_1" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="Test" UseDocumentAsBody="False">
+                      <umab:SendMailX.Cc>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </umab:SendMailX.Cc>
+                      <umab:SendMailX.Files>
+                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                          <InArgument x:TypeArguments="x:String">Test.xlsx</InArgument>
+                        </scg:List>
+                      </umab:SendMailX.Files>
+                      <umab:SendMailX.HtmlBodyFromFile>
+                        <umabh:HtmlContentArgument FilePath=".data/HtmlContent0.html">
+                          <umabh:HtmlContentArgument.RuntimeImages>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </umabh:HtmlContentArgument.RuntimeImages>
+                          <umabh:HtmlContentArgument.ValueMappings>
+                            <scg:List x:TypeArguments="umabh:HtmlValueMappingBase" Capacity="4">
+                              <umabh:HtmlTableValueMapping Name="Apartments" Value="[ExtractedData]" />
+                            </scg:List>
+                          </umabh:HtmlContentArgument.ValueMappings>
+                        </umabh:HtmlContentArgument>
+                      </umab:SendMailX.HtmlBodyFromFile>
+                      <umab:SendMailX.To>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </umab:SendMailX.To>
+                    </umab:SendMailX>
+                  </Sequence>
+                </ActivityAction>
+              </umab:GmailApplicationCard.Body>
+              <umab:GmailApplicationCard.EmailAddress>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </umab:GmailApplicationCard.EmailAddress>
+            </umab:GmailApplicationCard>
           </Sequence>
         </ActivityAction>
       </ui:OpenBrowser.Body>
@@ -160,7 +238,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OpenBrowser>
-    <ui:CloseApplication DisplayName="Close Application 'DIV'" sap:VirtualizedContainerService.HintSize="467,51" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+    <ui:CloseApplication DisplayName="Close Application 'DIV'" sap:VirtualizedContainerService.HintSize="586,106" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
       <ui:CloseApplication.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0caacb04-a9cb-442a-9646-191258372733" InformativeScreenshot="f4d5e27f1366d04d3c4a657e3404117c" Selector="&lt;wnd app='chrome.exe' title='*' /&gt;">
           <ui:Target.TimeoutMS>
@@ -173,12 +251,12 @@
       </ui:CloseApplication.Target>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CloseApplication>
-    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" AppliesTo="OnlyCurrentUser" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="467,51" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="chrome">
+    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" AppliesTo="OnlyCurrentUser" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="586,51" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="chrome">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>

@@ -39,7 +39,14 @@
     "processOptions": {
       "ignoredFiles": []
     },
-    "fileInfoCollection": [],
+    "fileInfoCollection": [
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "20292765-b834-4a03-bb5a-3f7660bc7f0f",
+        "testCaseType": "TestCase",
+        "fileName": "TestCase_DataTableToHtmlText.xaml"
+      }
+    ],
     "modernBehavior": false
   },
   "expressionLanguage": "VisualBasic",

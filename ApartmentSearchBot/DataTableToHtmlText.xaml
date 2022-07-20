@@ -1,16 +1,4 @@
-﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Main" this:Main.HeaderTag_th="&lt;th style='border-collapse: collapse;border: solid windowtext 1.0pt;background:#DDD9C4'&gt;" this:Main.TdTag="&lt;td style='border-collapse: collapse;border: solid windowtext 1.0pt;color:black'&gt;" this:Main.TableTag_td="&lt;table style='border-collapse: collapse;border: solid windowtext 1.0pt;table-layout: Auto;width: 100%;color:black;margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; color: #000000; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;'&gt;"
- xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
- xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
- xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
- xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
- xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
- xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
- xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
- xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
- xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
- xmlns:this="clr-namespace:"
- xmlns:ui="http://schemas.uipath.com/workflow/activities"
- xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.HeaderTag_th="&lt;th style='border-collapse: collapse;border: solid windowtext 1.0pt;background:#DDD9C4'&gt;" this:Main.TdTag="&lt;td style='border-collapse: collapse;border: solid windowtext 1.0pt;color:black'&gt;" this:Main.TableTag_td="&lt;table style='border-collapse: collapse;border: solid windowtext 1.0pt;table-layout: Auto;width: 100%;color:black;margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; color: #000000; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;'&gt;" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="InputDatatable" Type="InArgument(sd:DataTable)" />
     <x:Property Name="HtmlText" Type="OutArgument(x:String)" />
@@ -21,6 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1048,1395</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -46,6 +35,11 @@
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
       <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.ComponentModel</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -70,15 +64,27 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap:VirtualizedContainerService.HintSize="552,1330" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:GenericValue" Name="tableHTML" />
       <Variable x:TypeArguments="x:Int32" Name="index" />
     </Sequence.Variables>
-    <Assign sap2010:WorkflowViewState.IdRef="Assign_10">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="510,60" sap2010:WorkflowViewState.IdRef="Assign_10">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[HtmlText]</OutArgument>
       </Assign.To>
@@ -86,78 +92,93 @@
         <InArgument x:TypeArguments="x:String">[TableTag_td]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[InputDatatable.Rows(0).ItemArray]">
+    <ui:ForEach x:TypeArguments="sd:DataColumn" CurrentIndex="{x:Null}" DisplayName="For Each Column, add header" sap:VirtualizedContainerService.HintSize="510,276" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[InputDatatable.Columns]">
       <ui:ForEach.Body>
-        <ActivityAction x:TypeArguments="x:String">
+        <ActivityAction x:TypeArguments="sd:DataColumn">
           <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+            <DelegateInArgument x:TypeArguments="sd:DataColumn" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_4">
-            <Assign sap2010:WorkflowViewState.IdRef="Assign_11">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[HtmlText]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[HtmlText+HeaderTag_th+item.ToString+"&lt;/th&gt;"]</InArgument>
+                <InArgument x:TypeArguments="x:String">[HtmlText+HeaderTag_th+item.ColumnName+"&lt;/th&gt;"]</InArgument>
               </Assign.Value>
             </Assign>
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <ui:ForEachRow CurrentIndex="[index]" DataTable="[InputDatatable]" DisplayName="For Each Row" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index]" DataTable="[InputDatatable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="510,591" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5">
-            <If Condition="[index&gt;0]" sap2010:WorkflowViewState.IdRef="If_2">
-              <If.Then>
-                <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_2">
-                  <Assign sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,476" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Add &lt;tr&gt; tag" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[HtmlText]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[HtmlText+"&lt;tr&gt;"]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each Value in row, add HTML td tag" sap:VirtualizedContainerService.HintSize="434,184" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[row.ItemArray]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+                  </ActivityAction.Argument>
+                  <Assign DisplayName="Add td tag" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[HtmlText]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="x:String">[HtmlText+"&lt;tr&gt;"]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[HtmlText+TdTag+item.ToString+"&lt;/td&gt;"]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[row.ItemArray]">
-                    <ui:ForEach.Body>
-                      <ActivityAction x:TypeArguments="x:Object">
-                        <ActivityAction.Argument>
-                          <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
-                        </ActivityAction.Argument>
-                        <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_1">
-                          <Assign sap2010:WorkflowViewState.IdRef="Assign_3">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:String">[HtmlText]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:String">[HtmlText+TdTag+item.ToString+"&lt;/td&gt;"]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                        </Sequence>
-                      </ActivityAction>
-                    </ui:ForEach.Body>
-                  </ui:ForEach>
-                  <Assign sap2010:WorkflowViewState.IdRef="Assign_8">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="x:String">[HtmlText]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="x:String">[HtmlText+"&lt;/tr&gt;"]</InArgument>
-                    </Assign.Value>
-                  </Assign>
-                </Sequence>
-              </If.Then>
-            </If>
+                </ActivityAction>
+              </ui:ForEach.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ForEach>
+            <Assign DisplayName="Add &lt;/tr&gt; tag" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[HtmlText]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[HtmlText+"&lt;/tr&gt;"]</InArgument>
+              </Assign.Value>
+            </Assign>
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <Assign sap2010:WorkflowViewState.IdRef="Assign_9">
+    <Assign DisplayName="Add &lt;/table&gt; tag" sap:VirtualizedContainerService.HintSize="510,60" sap2010:WorkflowViewState.IdRef="Assign_9">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[HtmlText]</OutArgument>
       </Assign.To>
@@ -165,75 +186,6 @@
         <InArgument x:TypeArguments="x:String">[HtmlText+"&lt;/table&gt;"]</InArgument>
       </Assign.Value>
     </Assign>
-    <WriteLine DisplayName="Write Line" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[HtmlText]" />
-    <sads:DebugSymbol.Symbol>d2JDOlxVc2Vyc1xra2FsaWRvc1xEb2N1bWVudHNcTUVUTFxNRVRMXE1FVExcTUVUTF9LQURJUlxEYXRhVGFibGVUb0h0bWxUZXh0XERhdGFUYWJsZVRvSHRtbFRleHQueGFtbCUBwgEBmgIBBAFRAbABAQMBsgIByAYBAkwDqgEOAgEBUQVYDgIBMlkFaxICAShsBZ8BFQIBCqABBacBDgIBBagBBagBawIBAlYwVj0CATVTMVM7AgEzWZABWbQBAgExXwtoFgIBKWwhbCoCASZsNWxHAgEkcgucARYCAQulATClAUsCAQiiATGiATsCAQaoAVyoAWgCAQNgDWcWAgEqcw2bARICAQxlOGVrAgEtYjliQwIBK3MbcykCAQ11EZkBHAIBD3YTfRwCAR9+E5ABIAIBFZEBE5gBHAIBEHs+e1UCASJ4P3hJAgEgfp4Bfq8BAgEehAEZjQEkAgEWlgE+lgFWAgETkwE/kwFJAgERhQEbjAEkAgEXigFGigFyAgEahwFHhwFRAgEY</sads:DebugSymbol.Symbol>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;HTML text : &quot;+ Environment.NewLine + HtmlText]" />
   </Sequence>
-  <sap2010:WorkflowViewState.ViewStateManager>
-    <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="Assign_10" sap:VirtualizedContainerService.HintSize="516.666666666667,62" />
-      <sap2010:ViewStateData Id="Assign_11" sap:VirtualizedContainerService.HintSize="242,62" />
-      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="264,186">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="ForEach`1_2" sap:VirtualizedContainerService.HintSize="516.666666666667,324.666666666667" />
-      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="284.666666666667,62" />
-      <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="242,62" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="264,186">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="ForEach`1_1" sap:VirtualizedContainerService.HintSize="284.666666666667,324.666666666667">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Assign_8" sap:VirtualizedContainerService.HintSize="284.666666666667,62" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="306.666666666667,652.666666666667">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="464,806.666666666667" />
-      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="486,930.666666666667">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="ForEachRow_1" sap:VirtualizedContainerService.HintSize="516.666666666667,1083.33333333333">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Assign_9" sap:VirtualizedContainerService.HintSize="516.666666666667,62" />
-      <sap2010:ViewStateData Id="WriteLine_3" sap:VirtualizedContainerService.HintSize="516.666666666667,62.6666666666667" />
-      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="538.666666666667,1878.66666666667">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="578.666666666667,1958.66666666667" />
-    </sap2010:ViewStateManager>
-  </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

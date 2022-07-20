@@ -6,13 +6,14 @@
     "UiPath.Excel.Activities": "[2.12.3]",
     "UiPath.Mail.Activities": "[1.15.2]",
     "UiPath.System.Activities": "[22.4.1]",
+    "UiPath.Testing.Activities": "[22.4.3]",
     "UiPath.UIAutomation.Activities": "[22.4.5]"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "22.4.3.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.112026865",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -45,6 +46,12 @@
         "testCaseId": "20292765-b834-4a03-bb5a-3f7660bc7f0f",
         "testCaseType": "TestCase",
         "fileName": "TestCase_DataTableToHtmlText.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "f2be0b8f-d896-48ff-b572-9a03def6b84b",
+        "testCaseType": "TestCase",
+        "fileName": "TestCase_CommunicationSequence.xaml"
       }
     ],
     "modernBehavior": false

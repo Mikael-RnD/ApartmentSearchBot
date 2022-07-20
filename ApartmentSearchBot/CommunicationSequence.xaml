@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CommunicationSequence" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umabh="clr-namespace:UiPath.Mail.Activities.Business.HtmlEditor;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CommunicationSequence" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umabh="clr-namespace:UiPath.Mail.Activities.Business.HtmlEditor;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_dt_NewApartments" Type="InArgument(sd:DataTable)" />
   </x:Members>
@@ -82,7 +82,6 @@
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Communication Sequence" sap:VirtualizedContainerService.HintSize="552,1253" sap2010:WorkflowViewState.IdRef="Sequence_20">
@@ -92,7 +91,7 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <umab:GmailApplicationCard ClientId="{x:Null}" ClientSecret="{x:Null}" Account="Please select an account" ConnectionAccountName="mikael.l.andersson91@gmail.com" ConnectionId="f1edb86e-b105-ed11-b47a-0050f29e0988" DisplayName="Use Gmail" sap:VirtualizedContainerService.HintSize="510,1161" sap2010:WorkflowViewState.IdRef="GmailApplicationCard_1" Timeout="90" UseConnectionService="True">
+    <umab:GmailApplicationCard ClientId="{x:Null}" ClientSecret="{x:Null}" Account="Please select an account" ConnectionAccountName="mikael.l.andersson91@gmail.com #2" ConnectionId="d700d5f9-3808-ed11-b47a-0050f29e0988" DisplayName="Use Gmail" sap:VirtualizedContainerService.HintSize="510,1161" sap2010:WorkflowViewState.IdRef="GmailApplicationCard_1" Timeout="90" UseConnectionService="True">
       <umab:GmailApplicationCard.Body>
         <ActivityAction x:TypeArguments="um:IMailQuickHandle">
           <ActivityAction.Argument>
@@ -111,21 +110,11 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke DataTableToHtmlText workflow" sap:VirtualizedContainerService.HintSize="434,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" Level="Trace" LogEntry="WithArguments" LogExit="WithArguments" UnSafe="False" WorkflowFileName="DataTableToHtmlText.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="sd:DataTable" x:Key="InputDatatable">
-                  <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dt_NewApartments" />
-                </InArgument>
-                <OutArgument x:TypeArguments="x:String" x:Key="HtmlText">
-                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="htmlTable" />
-                </OutArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="HeaderTag_th">
-                  <Literal x:TypeArguments="x:String">&lt;th style='border-collapse: collapse;border: solid windowtext 1.0pt;background:#DDD9C4'&gt;</Literal>
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="TdTag">
-                  <Literal x:TypeArguments="x:String">&lt;td style='border-collapse: collapse;border: solid windowtext 1.0pt;color:black'&gt;</Literal>
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="TableTag_td">
-                  <Literal x:TypeArguments="x:String">&lt;table style='border-collapse: collapse;border: solid windowtext 1.0pt;table-layout: Auto;width: 100%;color:black;margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; color: #000000; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;'&gt;</Literal>
-                </InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="InputDatatable">[in_dt_NewApartments]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="HtmlText">[htmlTable]</OutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="HeaderTag_th">&lt;th style='border-collapse: collapse;border: solid windowtext 1.0pt;background:#DDD9C4'&gt;</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="TdTag">&lt;td style='border-collapse: collapse;border: solid windowtext 1.0pt;color:black'&gt;</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="TableTag_td">&lt;table style='border-collapse: collapse;border: solid windowtext 1.0pt;table-layout: Auto;width: 100%;color:black;margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; color: #000000; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;'&gt;</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <umab:CreateHtmlContent DisplayName="Create HTML Content" sap:VirtualizedContainerService.HintSize="434,151" HtmlContent="[mailBody]" sap2010:WorkflowViewState.IdRef="CreateHtmlContent_1">

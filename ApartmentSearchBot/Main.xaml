@@ -1,11 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_QueueName="Apartments" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umabh="clr-namespace:UiPath.Mail.Activities.Business.HtmlEditor;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_QueueName="Apartments" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_QueueName" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1048,4875</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1048,3678</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -95,7 +95,7 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="758,4810" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="758,3613" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sco:Collection(ui:QueueItem)" Default="[new Collection(Of QueueItem)]" Name="addedTransactionItems" />
     </Sequence.Variables>
@@ -105,12 +105,12 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="716,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;ApartmentSearch started...&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="716,4587" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="716,3390" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="s:Exception" Name="SystemException" />
       </TryCatch.Variables>
       <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="678,4359" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="678,3163" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="dt_NewApartments" />
           </Sequence.Variables>
@@ -279,7 +279,7 @@
             </sap:WorkflowViewStateService.ViewState>
           </ui:OpenBrowser>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="636,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[addedTransactionItems.Count.ToString + &quot; apartments were new&quot;]" />
-          <If Condition="[addedTransactionItems.Count &gt; 0]" DisplayName="If new apartments added" sap:VirtualizedContainerService.HintSize="636,1447" sap2010:WorkflowViewState.IdRef="If_3">
+          <If Condition="[addedTransactionItems.Count &gt; 0]" DisplayName="If new apartments added" sap:VirtualizedContainerService.HintSize="484,299" sap2010:WorkflowViewState.IdRef="If_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -287,90 +287,11 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Communication Sequence" sap:VirtualizedContainerService.HintSize="552,1260" sap2010:WorkflowViewState.IdRef="Sequence_20">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <umab:GmailApplicationCard ClientId="{x:Null}" ClientSecret="{x:Null}" Account="Please select an account" ConnectionAccountName="mikael.l.andersson91@gmail.com" ConnectionId="f1edb86e-b105-ed11-b47a-0050f29e0988" DisplayName="Use Gmail" sap:VirtualizedContainerService.HintSize="510,1168" sap2010:WorkflowViewState.IdRef="GmailApplicationCard_1" Timeout="90" UseConnectionService="True">
-                  <umab:GmailApplicationCard.Body>
-                    <ActivityAction x:TypeArguments="um:IMailQuickHandle">
-                      <ActivityAction.Argument>
-                        <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Gmail" />
-                      </ActivityAction.Argument>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,989" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                        <Sequence.Variables>
-                          <Variable x:TypeArguments="x:String" Name="receiver" />
-                          <Variable x:TypeArguments="x:String" Name="mailBody" />
-                          <Variable x:TypeArguments="x:String" Name="htmlTable" />
-                        </Sequence.Variables>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke DataTableToHtmlText workflow" sap:VirtualizedContainerService.HintSize="434,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" Level="Trace" LogEntry="WithArguments" LogExit="WithArguments" UnSafe="False" WorkflowFileName="DataTableToHtmlText.xaml">
-                          <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="sd:DataTable" x:Key="InputDatatable">[dt_NewApartments]</InArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="HtmlText">[htmlTable]</OutArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="HeaderTag_th">&lt;th style='border-collapse: collapse;border: solid windowtext 1.0pt;background:#DDD9C4'&gt;</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="TdTag">&lt;td style='border-collapse: collapse;border: solid windowtext 1.0pt;color:black'&gt;</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="TableTag_td">&lt;table style='border-collapse: collapse;border: solid windowtext 1.0pt;table-layout: Auto;width: 100%;color:black;margin: 0in 0in 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; color: #000000; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;'&gt;</InArgument>
-                          </ui:InvokeWorkflowFile.Arguments>
-                        </ui:InvokeWorkflowFile>
-                        <umab:CreateHtmlContent DisplayName="Create HTML Content" sap:VirtualizedContainerService.HintSize="434,151" HtmlContent="[mailBody]" sap2010:WorkflowViewState.IdRef="CreateHtmlContent_1">
-                          <umab:CreateHtmlContent.HtmlContentArg>
-                            <umabh:HtmlContentArgument FilePath=".data/HtmlContent1.html">
-                              <umabh:HtmlContentArgument.RuntimeImages>
-                                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-                              </umabh:HtmlContentArgument.RuntimeImages>
-                              <umabh:HtmlContentArgument.ValueMappings>
-                                <scg:List x:TypeArguments="umabh:HtmlValueMappingBase" Capacity="4">
-                                  <umabh:HtmlTextValueMapping Name="HtmlTable" Value="[htmlTable]" />
-                                </scg:List>
-                              </umabh:HtmlContentArgument.ValueMappings>
-                            </umabh:HtmlContentArgument>
-                          </umab:CreateHtmlContent.HtmlContentArg>
-                        </umab:CreateHtmlContent>
-                        <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="MariasMail" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="434,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
-                          <ui:GetRobotAsset.Value>
-                            <OutArgument x:TypeArguments="x:String">[receiver]</OutArgument>
-                          </ui:GetRobotAsset.Value>
-                        </ui:GetRobotAsset>
-                        <umab:SendMailX Bcc="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Gmail]" Body="[mailBody]" Cc="mikael.l.andersson91@gmail.com" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,377" sap2010:WorkflowViewState.IdRef="SendMailX_1" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="Nya lägenheter" To="[receiver]" UseDocumentAsBody="False">
-                          <umab:SendMailX.Files>
-                            <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
-                          </umab:SendMailX.Files>
-                          <umab:SendMailX.HtmlBodyFromFile>
-                            <umabh:HtmlContentArgument FilePath=".data/HtmlContent0.html">
-                              <umabh:HtmlContentArgument.RuntimeImages>
-                                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-                              </umabh:HtmlContentArgument.RuntimeImages>
-                              <umabh:HtmlContentArgument.ValueMappings>
-                                <scg:List x:TypeArguments="umabh:HtmlValueMappingBase" Capacity="4">
-                                  <umabh:HtmlTableValueMapping Name="Apartments" Value="[dt_NewApartments]" />
-                                </scg:List>
-                              </umabh:HtmlContentArgument.ValueMappings>
-                            </umabh:HtmlContentArgument>
-                          </umab:SendMailX.HtmlBodyFromFile>
-                        </umab:SendMailX>
-                      </Sequence>
-                    </ActivityAction>
-                  </umab:GmailApplicationCard.Body>
-                  <umab:GmailApplicationCard.EmailAddress>
-                    <InArgument x:TypeArguments="x:String">
-                      <Literal x:TypeArguments="x:String" Value="" />
-                    </InArgument>
-                  </umab:GmailApplicationCard.EmailAddress>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </umab:GmailApplicationCard>
-              </Sequence>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CommunicationSequence workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="CommunicationSequence.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
             </If.Then>
             <If.Else>
               <Sequence sap2010:WorkflowViewState.IdRef="Sequence_21">
@@ -382,7 +303,7 @@
               </Sequence>
             </If.Else>
           </If>
-          <ui:ForEach x:TypeArguments="ui:QueueItem" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="636,52" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[addedTransactionItems]">
+          <ui:ForEach x:TypeArguments="ui:QueueItem" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="636,51" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[addedTransactionItems]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="ui:QueueItem">
                 <ActivityAction.Argument>
@@ -412,7 +333,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:ForEach>
-          <ui:CloseApplication DisplayName="Close Application 'DIV'" sap:VirtualizedContainerService.HintSize="636,52" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+          <ui:CloseApplication DisplayName="Close Application 'DIV'" sap:VirtualizedContainerService.HintSize="636,51" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
             <ui:CloseApplication.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0caacb04-a9cb-442a-9646-191258372733" InformativeScreenshot="f4d5e27f1366d04d3c4a657e3404117c" Selector="&lt;wnd app='chrome.exe' title='*' /&gt;">
                 <ui:Target.TimeoutMS>
@@ -433,7 +354,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="682,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="682,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
